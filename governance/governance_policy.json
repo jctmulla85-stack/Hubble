@@ -1,0 +1,15 @@
+{
+  "governance_version": "1.0.0",
+  "hard_limits": {
+    "max_notional_per_trade": 50000.0,
+    "max_total_exposure_ratio": 0.25,
+    "max_daily_loss_limit": 0.05,
+    "max_open_positions": 5,
+    "blacklisted_assets": ["LUNA", "FTT", "MEME_COINS"]
+  },
+  "safety_protocols": {
+    "emergency_shutdown_trigger": "HARD_FLOOR_BREACH",
+    "circuit_breaker_cooldown": 3600,
+    "latency_threshold_ms": 100
+  }
+}

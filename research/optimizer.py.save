@@ -1,0 +1,80 @@
+import os
+import sys
+import json
+import numpy as np
+import pandas as pd
+from datetime import datetime, timezone
+from typing import Dict, List, Tuple, Optional
+
+# Secure import from master logger
+from logger import get_master_logger
+logger = get_master_logger()
+
+class AdvancedOptimizer:
+    """
+    Institutional-grade Strategy Optimizer featuring Combinatorial Purged 
+    Cross-Validation (CPCV) and Deflated Sharpe Ratio (DSR) anti-overfitting gates.
+    """
+    def __init__(self, data: pd.DataFrame, parameter_grid: List[Dict]):
+        self.data = data
+        self.parameter_grid = parameter_grid
+        logger.info("[Optimizer] AdvancedOptimizer initialized with CPCV and DSR security gates.")
+
+    def purge_and_embargo(self, train_idx: np.ndarray, test_idx: np.ndarray, embargo_pct: float = 0.01) -> np.ndarray:
+        """
+        Applies purging and embargoing to eliminate data snooping and serial correlation leakage.
+        """
+        test_start, test_end = test_idx[0], test_idx[-1]
+        embargo_size = int(len(self.data) * embargo_pct)
+        
+        # Purge training samples that overlap with test timeframe and apply embargo buffer
+        purged_train_idx = [
+            i for i in train_idx 
+            if not (test_start <= i <= test_end + embargo_size)
+        ]
+        return np.array(purged_train_idx)
+
+    def calculate_sharpe_ratio(self, returns: pd.Series) -> float:
+        """Calculates annualized Sharpe ratio assuming zero risk-free rate for simplicity."""
+        if len(returns) < 2 or returns.std() == 0:
+            return 0.0
+        return float((returns.mean() / returns.std()) * np.sqrt(252))
+
+    def deflated_sharpe_ratio(self, observed_sr: float, num_trials: int, sample_length: int, skew: float, kurtosis: float) -> float:
+        """
+        Calculates the Deflated Sharpe Ratio (DSR) to correct for multiple-testing bias.
+        """
+        try:
+            # Expected maximum Sharpe ratio under multiple trials approximation
+            euler_mascheroni = 0.5772156649
+            sr_peaktrial = (1 - euler_mascheroni) * np.norm.ppf(1 - 1.0 / num_trials) + euler_mascheroni * np.norm.ppf(1 - 1.0 / (num_trials * np.e))
+            
+            variance_factor = 1.0 - skew * observed_sr + ((kurtosis - 1.0) / 4.0) * (observed_sr ** 2)
+            if variance_factor <= 0:
+                variance_factor = 1e-4
+                
+            dsr_stat = (observed_sr - sr_peaktrial) / np.sqrt(variance_factor / sample_length)
+            return float(dsr_stat)
+        except Exception as e:
+            logger.error(f"[Optimizer Error] DSR calculation failed: {e}")
+            return -999.0
+
+    def run_cpcv_optimization(self) -> Optional[Dict]:
+        """
+        Executes Combinatorial Purged Cross-Validation across the parameter grid.
+        """
+        logger.info("[Optimizer] Starting CPCV path evaluation...")
+        best_score = -float('inf')
+        best_params = None
+        
+        num_trials = len(self.parameter_grid)
+        sample_length = len(self.data)
+
+        if sample_length < 50:
+            logger.warning("[Optimizer Warning] Insufficient data length for robust CPCV validation.")
+            return None
+
+        # Simulate CPCV splits (simplified combinatorial grouping representation)
+        split_size = sample_length // 5
+        
+        for params in self.para

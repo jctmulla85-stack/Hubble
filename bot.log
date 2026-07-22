@@ -1,0 +1,5 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/root/QuantBot/main.py", line 14, in <module>
+    from governance.logger import get_master_logger
+ImportError: cannot import name 'get_master_logger' from 'governance.logger' (/root/QuantBot/governance/logger.py)

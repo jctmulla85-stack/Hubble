@@ -1,0 +1,111 @@
+{"timestamp": "2026-07-21T23:42:53.769542", "type": "INFO", "data": "[Optimizer] AdvancedOptimizer initialized with CPCV and DSR security gates."}
+{"timestamp": "2026-07-21T23:42:53.769771", "type": "INFO", "data": "[Optimizer] Starting CPCV path evaluation..."}
+{"timestamp": "2026-07-21T23:42:53.772333", "type": "ERROR", "data": "[Optimizer Error] DSR calculation failed: module 'numpy' has no attribute 'norm'"}
+{"timestamp": "2026-07-21T23:42:53.772445", "type": "INFO", "data": "[Optimizer Audit] Params: {'window': 10, 'threshold': 1.5} | Mean SR: 0.6549 | DSR Stat: -999.0000"}
+{"timestamp": "2026-07-21T23:42:53.774204", "type": "ERROR", "data": "[Optimizer Error] DSR calculation failed: module 'numpy' has no attribute 'norm'"}
+{"timestamp": "2026-07-21T23:42:53.774292", "type": "INFO", "data": "[Optimizer Audit] Params: {'window': 14, 'threshold': 2.0} | Mean SR: 0.2040 | DSR Stat: -999.0000"}
+{"timestamp": "2026-07-21T23:42:53.775912", "type": "ERROR", "data": "[Optimizer Error] DSR calculation failed: module 'numpy' has no attribute 'norm'"}
+{"timestamp": "2026-07-21T23:42:53.775989", "type": "INFO", "data": "[Optimizer Audit] Params: {'window': 21, 'threshold': 2.5} | Mean SR: 1.2110 | DSR Stat: -999.0000"}
+{"timestamp": "2026-07-21T23:42:53.776023", "type": "WARNING", "data": "[Optimizer Alert] No parameter set cleared the DSR anti-overfitting security gate."}
+{"timestamp": "2026-07-22T06:41:01.016652", "type": "INFO", "data": "[Optimizer] AdvancedOptimizer initialized with CPCV and DSR security gates."}
+{"timestamp": "2026-07-22T06:41:01.016820", "type": "INFO", "data": "[Optimizer] Starting CPCV path evaluation..."}
+{"timestamp": "2026-07-22T06:41:01.019076", "type": "INFO", "data": "[Optimizer Audit] Params: {'window': 10, 'threshold': 1.5} | Mean SR: 0.6549 | DSR Stat: -1.7117"}
+{"timestamp": "2026-07-22T06:41:01.020779", "type": "INFO", "data": "[Optimizer Audit] Params: {'window': 14, 'threshold': 2.0} | Mean SR: 0.2040 | DSR Stat: -8.1782"}
+{"timestamp": "2026-07-22T06:41:01.022388", "type": "INFO", "data": "[Optimizer Audit] Params: {'window': 21, 'threshold': 2.5} | Mean SR: 1.2110 | DSR Stat: 4.5407"}
+{"timestamp": "2026-07-22T06:41:01.022465", "type": "INFO", "data": "[Optimizer Success] Optimal parameters selected securely: {'window': 21, 'threshold': 2.5} with Score: 1.2110"}
+{"timestamp": "2026-07-22T06:41:01.022685", "type": "INFO", "data": "[Optimizer] Optimal parameters successfully written to secure storage."}
+{"timestamp": "2026-07-22T06:43:32.173215", "type": "INFO", "data": "[Controller] Orchestrator initializing for accounts: ['APEX_001']"}
+{"timestamp": "2026-07-22T06:43:32.173583", "type": "INFO", "data": "[Controller] Booting worker process for account: APEX_001"}
+{"timestamp": "2026-07-22T06:43:32.174187", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:43:32.174236", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:44:02.174621", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:44:02.174751", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:44:02.174806", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:44:02.175270", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:44:32.175700", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:44:32.175822", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:44:32.175872", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:44:32.176335", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:45:02.176732", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:45:02.176846", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:45:02.176894", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:45:02.177370", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:45:32.177743", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:45:32.177836", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:45:32.177879", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:45:32.178296", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:46:31.656366", "type": "INFO", "data": "[Controller] Orchestrator initializing for accounts: ['APEX_001']"}
+{"timestamp": "2026-07-22T06:46:31.656738", "type": "INFO", "data": "[Controller] Booting worker process for account: APEX_001"}
+{"timestamp": "2026-07-22T06:46:31.657405", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:46:31.657458", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:47:01.657909", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:47:01.658022", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:47:01.658076", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:47:01.658540", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:47:31.658939", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:47:31.659058", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:47:31.659109", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:47:31.659633", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:48:46.076160", "type": "INFO", "data": "[Controller] Orchestrator initializing for accounts: ['APEX_001']"}
+{"timestamp": "2026-07-22T06:48:46.076513", "type": "INFO", "data": "[Controller] Booting worker process for account: APEX_001"}
+{"timestamp": "2026-07-22T06:48:46.077148", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:48:46.077201", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:48:46.244189", "type": "INFO", "data": "[Worker Main] Starting GovernorGuard evaluation loop."}
+{"timestamp": "2026-07-22T06:48:46.330026", "type": "INFO", "data": "[GovernorGuard Initialized] Telegram bot dispatch interface ready."}
+{"timestamp": "2026-07-22T06:48:46.330216", "type": "INFO", "data": "[Governor APPROVE] Trade action cleared: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:48:46.330280", "type": "INFO", "data": "APPROVED ACTION: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:48:46.330331", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:48:46.330371", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:49:16.077665", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:49:16.077785", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:49:16.077837", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:49:16.078323", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:49:16.245084", "type": "INFO", "data": "[Worker Main] Starting GovernorGuard evaluation loop."}
+{"timestamp": "2026-07-22T06:49:16.329004", "type": "INFO", "data": "[GovernorGuard Initialized] Telegram bot dispatch interface ready."}
+{"timestamp": "2026-07-22T06:49:16.329192", "type": "INFO", "data": "[Governor APPROVE] Trade action cleared: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:49:16.329255", "type": "INFO", "data": "APPROVED ACTION: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:49:16.329301", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:49:16.329342", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:50:27.636698", "type": "INFO", "data": "[Controller] Orchestrator initializing for accounts: ['APEX_001']"}
+{"timestamp": "2026-07-22T06:50:27.637038", "type": "INFO", "data": "[Controller] Booting worker process for account: APEX_001"}
+{"timestamp": "2026-07-22T06:50:27.637674", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:50:27.637726", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:50:27.798151", "type": "INFO", "data": "[Worker Main] Starting GovernorGuard evaluation loop."}
+{"timestamp": "2026-07-22T06:50:27.880376", "type": "INFO", "data": "[GovernorGuard Initialized] Telegram bot dispatch interface ready."}
+{"timestamp": "2026-07-22T06:50:27.880569", "type": "INFO", "data": "[Governor APPROVE] Trade action cleared: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:50:27.880650", "type": "INFO", "data": "APPROVED ACTION: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:50:27.880684", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:50:27.880728", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:51:05.374929", "type": "INFO", "data": "[Controller] Orchestrator initializing for accounts: ['APEX_001']"}
+{"timestamp": "2026-07-22T06:51:05.375335", "type": "INFO", "data": "[Controller] Booting worker process for account: APEX_001"}
+{"timestamp": "2026-07-22T06:51:05.376032", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:51:05.376107", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:51:05.500852", "type": "INFO", "data": "[Worker Main] Starting GovernorGuard evaluation loop."}
+{"timestamp": "2026-07-22T06:51:05.568250", "type": "INFO", "data": "[GovernorGuard Initialized] Telegram bot dispatch interface ready."}
+{"timestamp": "2026-07-22T06:51:05.568427", "type": "INFO", "data": "[Governor APPROVE] Trade action cleared: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:51:05.568478", "type": "INFO", "data": "APPROVED ACTION: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:51:05.568499", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:51:05.568528", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:51:05.856262", "type": "CRITICAL", "data": "[Telegram Dispatch Critical Failure] Failed to send alert: Not Found"}
+{"timestamp": "2026-07-22T06:51:35.376532", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:51:35.376670", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:51:35.376731", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:51:35.377154", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:51:35.499402", "type": "INFO", "data": "[Worker Main] Starting GovernorGuard evaluation loop."}
+{"timestamp": "2026-07-22T06:51:35.566685", "type": "INFO", "data": "[GovernorGuard Initialized] Telegram bot dispatch interface ready."}
+{"timestamp": "2026-07-22T06:51:35.566844", "type": "INFO", "data": "[Governor APPROVE] Trade action cleared: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:51:35.566895", "type": "INFO", "data": "APPROVED ACTION: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:51:35.566917", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:51:35.566943", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:51:35.811256", "type": "CRITICAL", "data": "[Telegram Dispatch Critical Failure] Failed to send alert: Not Found"}
+{"timestamp": "2026-07-22T06:52:05.377594", "type": "ERROR", "data": "[Controller Error] Failed to read heartbeat log: 'str' object has no attribute 'get'"}
+{"timestamp": "2026-07-22T06:52:05.377749", "type": "WARNING", "data": "[Watchdog Warning] No heartbeat recorded yet for worker APEX_001."}
+{"timestamp": "2026-07-22T06:52:05.377800", "type": "WARNING", "data": "[Watchdog Recovery] Restarting unresponsive/dead worker for account APEX_001..."}
+{"timestamp": "2026-07-22T06:52:05.378224", "type": "INFO", "data": "[Watchdog Recovery] Worker APEX_001 successfully restarted."}
+{"timestamp": "2026-07-22T06:52:05.500618", "type": "INFO", "data": "[Worker Main] Starting GovernorGuard evaluation loop."}
+{"timestamp": "2026-07-22T06:52:05.567182", "type": "INFO", "data": "[GovernorGuard Initialized] Telegram bot dispatch interface ready."}
+{"timestamp": "2026-07-22T06:52:05.567339", "type": "INFO", "data": "[Governor APPROVE] Trade action cleared: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:52:05.567389", "type": "INFO", "data": "APPROVED ACTION: {'action': 'BUY', 'message': 'Standard trade'}"}
+{"timestamp": "2026-07-22T06:52:05.567411", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:52:05.567435", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
+{"timestamp": "2026-07-22T06:52:05.824215", "type": "CRITICAL", "data": "[Telegram Dispatch Critical Failure] Failed to send alert: Not Found"}

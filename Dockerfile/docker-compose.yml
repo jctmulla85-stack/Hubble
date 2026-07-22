@@ -1,0 +1,25 @@
+services:
+  # The central engine that orchestrates your modules
+  trading-engine:
+    build: .
+    container_name: firm_engine
+    restart: unless-stopped
+    # Mount source code for production (or leave out for a "frozen" image)
+    volumes:
+      - ./src:/app/src
+    environment:
+      # Injecting environment variables for security
+      - ALPACA_API_KEY=${ALPACA_API_KEY}
+      - ALPACA_SECRET_KEY=${ALPACA_SECRET_KEY}
+      - TZ=UTC # Financial systems use UTC to avoid time-drift errors
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    # Log streaming for your "audit trail"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"

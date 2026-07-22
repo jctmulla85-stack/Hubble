@@ -1,0 +1,1 @@
+{"timestamp": "2026-07-15T23:02:20.829801", "event_type": "TRADE_EXECUTION", "status": "AUTHORIZED", "regime": "TEST_MODE", "reasoning": "Order cleared risk engine", "details": {"qty": 100, "price": 100, "stop": 90, "volume": 1000}}

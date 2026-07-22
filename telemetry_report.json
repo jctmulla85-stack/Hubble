@@ -1,0 +1,10 @@
+{
+    "timestamp": "2026-07-12 17:12:41",
+    "status": "OPERATIONAL",
+    "positions": {
+        "SPY": 14
+    },
+    "last_action": null,
+    "last_perception": "NONE",
+    "version": "1.0.0"
+}
