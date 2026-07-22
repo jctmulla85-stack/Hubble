@@ -1,4 +1,4 @@
-from logger import get_master_logger
+from governance.logger import get_master_logger
 logger = get_master_logger()
 
 class GovernanceAgent:

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import alpaca_trade_api as tradeapi
 
 # Secure Imports from internal modules
-from logger import get_master_logger
+from governance.logger import get_master_logger
 
 # --- Master Logger Setup ---
 logger = get_master_logger()

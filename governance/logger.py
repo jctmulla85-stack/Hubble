@@ -16,3 +16,7 @@ def log_event(event_type, details):
         "data": details
     }
     audit_logger.info(json.dumps(event))
+
+def get_master_logger(name="MasterLogger"):
+    """Returns the master audit logger instance."""
+    return audit_logger

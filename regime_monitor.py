@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 # Secure Imports from internal modules
-from logger import get_master_logger
+from governance.logger import get_master_logger
 
 # --- Master Logger Setup ---
 logger = get_master_logger()

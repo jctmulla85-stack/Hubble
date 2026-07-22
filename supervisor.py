@@ -7,7 +7,7 @@ from typing import Dict, Any, Tuple
 # Secure Imports from internal modules
 from circuit_breaker import GovernanceAgent
 from metrics_monitor import get_live_metrics
-from logger import get_master_logger
+from governance.logger import get_master_logger
 
 # --- Master Logger Setup ---
 logger = get_master_logger()

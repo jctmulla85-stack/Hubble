@@ -1,6 +1,6 @@
 from circuit_breaker import GovernanceAgent
 from metrics_monitor import get_live_metrics
-from logger import get_master_logger
+from governance.logger import get_master_logger
 
 logger = get_master_logger()
 SAFETY = {"max_drawdown": 0.05, "max_trades_per_hour": 50}

@@ -109,3 +109,11 @@
 {"timestamp": "2026-07-22T06:52:05.567411", "type": "WARNING", "data": "[Governor VETO] Trade action flagged and blocked: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
 {"timestamp": "2026-07-22T06:52:05.567435", "type": "WARNING", "data": "VETOED ACTION: {'action': 'SELL', 'message': 'CRITICAL: Connection error'}"}
 {"timestamp": "2026-07-22T06:52:05.824215", "type": "CRITICAL", "data": "[Telegram Dispatch Critical Failure] Failed to send alert: Not Found"}
+[Main Startup] Environment variables loaded successfully.
+[Main Startup] Configuration instance successfully created.
+[Governor Initialized] Equity: $100,000.00 | Risk/Trade: 5.0% | Max Daily Loss: $10,000.00
+[Main Startup] Governor safety parameters and circuit breakers initialized.
+[LiveAlpacaBackend Initialized] Active broker connection interface ready.
+[Main Startup] Live execution backend successfully linked.
+[Gatekeeper Initialized] Security interception and risk routing active.
+[Main Startup] Gatekeeper dependency injection complete.

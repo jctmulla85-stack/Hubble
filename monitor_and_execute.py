@@ -14,7 +14,7 @@ if RESEARCH_DIR not in sys.path:
     sys.path.append(RESEARCH_DIR)
 
 # Secure Imports from internal modules
-from logger import get_master_logger
+from governance.logger import get_master_logger
 from governance.governor import Governor
 from execution.reconciler import Reconciler
 from momentum_strategy import MomentumStrategy

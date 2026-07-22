@@ -11,7 +11,7 @@ if BASE_DIR not in sys.path:
 
 # Secure Imports from internal modules
 from notifier import send_alert
-from logger import get_master_logger
+from governance.logger import get_master_logger
 
 # --- Master Logger Setup ---
 logger = get_master_logger()
