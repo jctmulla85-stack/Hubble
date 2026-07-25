@@ -20,3 +20,7 @@ def log_event(event_type, details):
 def get_master_logger(name="MasterLogger"):
     """Returns the master audit logger instance."""
     return audit_logger
+
+def get_master_logger(name="MasterLogger"):
+    """Returns the master audit logger instance."""
+    return audit_logger

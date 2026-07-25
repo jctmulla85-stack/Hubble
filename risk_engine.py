@@ -1,3 +1,4 @@
+from gatekeeper import Gatekeeper
 import logging
 from typing import Optional, Dict, Any
 import pandas as pd
@@ -13,6 +14,7 @@ class RiskEngine:
     """
     def __init__(self, default_risk_pct: float = 0.01) -> None:
         self.default_risk_pct = default_risk_pct
+        self.gatekeeper = Gatekeeper()
         logger.info("RiskEngine initialized with strict volatility sizing parameters.")
 
     def calculate_atr(self, df: pd.DataFrame, period: int = 14) -> Optional[float]:
