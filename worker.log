@@ -1,0 +1,2 @@
+INFO:execution.backend:[LiveAlpacaBackend Initialized] Active broker connection interface ready.
+INFO:QuantBotEngine:[Engine Initialized] Active Execution Mode: PAPER

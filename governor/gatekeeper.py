@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 import os
 import json
 import logging
@@ -18,8 +20,8 @@ class SystemGovernor:
         self._ensure_storage()
         
         # Initialize Alpaca client for live asset universe tracking
-        api_key = os.getenv("APCA_API_KEY_ID")
-        secret_key = os.getenv("APCA_API_SECRET_KEY")
+        api_key = os.getenv("ALPACA_KEY_APEX_001")
+        secret_key = os.getenv("ALPACA_SECRET_APEX_001")
         self.trading_client = TradingClient(api_key=api_key, secret_key=secret_key, paper=True)
 
     def _ensure_storage(self) -> None:

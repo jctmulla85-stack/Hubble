@@ -78,7 +78,8 @@ def run_orchestrator(accounts: List[str]) -> None:
             continue
             
         log_event("INFO", f"[Controller] Booting worker process for account: {acc}")
-        processes[acc] = subprocess.Popen(['python3', worker_script, '--id', acc])
+        wlog = open(f'logs/worker_{acc}.log', 'a')
+        processes[acc] = subprocess.Popen(['python3', '-u', worker_script, '--id', acc], stdout=wlog, stderr=wlog)
 
     # Continuous Feedback & Watchdog Loop
     try:
@@ -115,7 +116,8 @@ def run_orchestrator(accounts: List[str]) -> None:
                             proc.kill()
 
                     worker_script = os.path.join('execution', 'worker.py')
-                    processes[acc] = subprocess.Popen(['python3', worker_script, '--id', acc])
+                    wlog = open(f'logs/worker_{acc}.log', 'a')
+                    processes[acc] = subprocess.Popen(['python3', '-u', worker_script, '--id', acc], stdout=wlog, stderr=wlog)
                     log_event("INFO", f"[Watchdog Recovery] Worker {acc} successfully restarted.")
 
             time.sleep(WATCHDOG_INTERVAL)

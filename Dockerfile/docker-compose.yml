@@ -9,8 +9,8 @@ services:
       - ./src:/app/src
     environment:
       # Injecting environment variables for security
-      - ALPACA_API_KEY=${ALPACA_API_KEY}
-      - ALPACA_SECRET_KEY=${ALPACA_SECRET_KEY}
+      - ALPACA_KEY_APEX_001=${ALPACA_KEY_APEX_001}
+      - ALPACA_SECRET_APEX_001=${ALPACA_SECRET_APEX_001}
       - TZ=UTC # Financial systems use UTC to avoid time-drift errors
     deploy:
       resources:

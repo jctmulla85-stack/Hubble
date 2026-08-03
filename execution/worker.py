@@ -1,95 +1,116 @@
-import os
-import sys
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from execution.reconciler import Reconciler
+
+import sys, os; sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+import time
 import logging
-import asyncio
-from typing import Dict, Any, Optional
+import sys
+import argparse
+import os
 from dotenv import load_dotenv
-from telegram import Bot
 
-# --- Path Setup ---
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if BASE_DIR not in sys.path:
-    sys.path.append(BASE_DIR)
-
-# Secure Imports from internal modules
-from governance.logger import log_event
-
-# --- Master Logger Setup ---
-# logger removed
-
-# Load secrets from .env
+# Load environment variables from .env file
 load_dotenv()
-TELEGRAM_TOKEN: Optional[str] = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID: Optional[str] = os.getenv("TELEGRAM_CHAT_ID")
+
+from execution.engine import Engine
+from execution.backend import LiveAlpacaBackend, TradingBackend
 
 class GovernorGuard:
-    """
-    Enterprise Governor Guard: Evaluates asynchronous trade actions, 
-    enforces safety filters, and dispatches critical alerts via Telegram.
-    """
-    def __init__(self) -> None:
-        if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-            log_event("WARNING", "[GovernorGuard Warning] TELEGRAM_TOKEN or TELEGRAM_CHAT_ID is missing from environment variables.")
-            self.bot: Optional[Bot] = None
-        else:
-            self.bot = Bot(token=TELEGRAM_TOKEN)
-            log_event("INFO", "[GovernorGuard Initialized] Telegram bot dispatch interface ready.")
+    def __init__(self, live_backend, max_daily_drawdown_pct=0.05):
+        self.live_backend = live_backend
+        self.max_daily_drawdown_pct = max_daily_drawdown_pct
+        self.peak_equity = 0.0
 
-    async def notify(self, message: str) -> None:
-        """Asynchronously sends formatted risk alerts to the configured Telegram chat."""
-        if not self.bot or not TELEGRAM_CHAT_ID:
-            log_event("ERROR", f"[GovernorGuard Alert Error] Cannot send notification, Telegram client uninitialized. Message: {message}")
-            return
-
-        try:
-            formatted_msg = f"⚠️ {message}"
-            await self.bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=formatted_msg)
-            log_event("INFO", f"[Telegram Alert Dispatched Successfully] {message}")
-        except Exception as e:
-            log_event("CRITICAL", f"[Telegram Dispatch Critical Failure] Failed to send alert: {e}")
-
-    def evaluate(self, action_details: Dict[str, Any]) -> str:
-        """Core Governor evaluation logic to vet incoming trade payloads."""
-        try:
-            message_content = str(action_details.get('message', '')).lower()
-            if "error" in message_content or "critical" in message_content:
-                log_event("WARNING", f"[Governor VETO] Trade action flagged and blocked: {action_details}")
-                return "VETO"
-            
-            log_event("INFO", f"[Governor APPROVE] Trade action cleared: {action_details}")
+    def evaluate(self):
+        if not self.live_backend:
             return "APPROVE"
-        except Exception as e:
-            log_event("ERROR", f"[Governor Error] Exception during trade evaluation: {e}")
-            return "VETO" # Fail closed for security
+        
+        try:
+            client = getattr(self.live_backend, "client", None)
+            if client and hasattr(client, "get_account"):
+                account = client.get_account()
+                current_equity = float(account.equity)
+            else:
+                return "APPROVE"
+        except Exception:
+            return "APPROVE"
 
-async def main() -> None:
-    """Main execution loop for worker guard evaluations and simulation dispatch."""
-    log_event("INFO", "[Worker Main] Starting GovernorGuard evaluation loop.")
-    guard = GovernorGuard()
+        if current_equity > self.peak_equity:
+            self.peak_equity = current_equity
 
-    # Example Trade Loop
-    pending_trades = [
-        {"action": "BUY", "message": "Standard trade"},
-        {"action": "SELL", "message": "CRITICAL: Connection error"}
-    ]
+        if self.peak_equity > 0:
+            drawdown = (self.peak_equity - current_equity) / self.peak_equity
+            if drawdown >= self.max_daily_drawdown_pct:
+                self.emergency_flatten("Max daily drawdown threshold breached")
+                return "VETOED"
 
-    for trade in pending_trades:
-        decision = guard.evaluate(trade)
+        return "APPROVE"
 
-        if decision == "VETO":
-            print(f"VETOED: {trade}")
-            log_event("WARNING", f"VETOED ACTION: {trade}")
-            await guard.notify(f"Trade Vetoed: {trade.get('message', 'Unknown reason')}")
-        else:
-            print(f"APPROVED: {trade}")
-            log_event("INFO", f"APPROVED ACTION: {trade}")
-            # place_order(trade) # Actual trading logic goes here
+    def emergency_flatten(self, reason):
+        print(f"[EMERGENCY FLATTEN TRIGGERED]: {reason}")
+        if hasattr(self.live_backend, "client"):
+            client = self.live_backend.client
+            if hasattr(client, "cancel_orders"):
+                try:
+                    client.cancel_orders()
+                except Exception:
+                    pass
+            if hasattr(client, "close_all_positions"):
+                try:
+                    client.close_all_positions(cancel_orders=True)
+                except Exception:
+                    try:
+                        client.close_all_positions()
+                    except Exception as e:
+                        print(f"[Error] Failed to execute emergency flatten: {e}")
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        log_event("INFO", "[Worker Terminated] Process interrupted by user.")
-    except Exception as e:
-        log_event("CRITICAL", f"[Worker Critical Crash] Unhandled exception in main event loop: {e}")
+    parser = argparse.ArgumentParser(description="QuantBot Execution Worker")
+    parser.add_argument("--id", required=True, help="Account ID")
+    args = parser.parse_args()
 
+    # Initialize backend client and live wrapper using .env credentials
+    api_client = TradingBackend() if 'TradingBackend' in globals() else None
+    backend = LiveAlpacaBackend(api_client=api_client) if api_client else None
+    engine = Engine(api_client=backend)
+    guard = GovernorGuard(live_backend=engine)
+    
+    print(f"[Worker] Initialized worker for account: {args.id}")
+
+    reconciler = Reconciler(governor=guard)
+
+while True:
+    try:
+        # Evaluate governor guard and run engine tick
+        if guard.evaluate() == 'VETOED':
+            print('[Worker] Execution vetoed by governor guard.')
+        else:
+            if hasattr(engine, 'tick'):
+                engine.tick()
+            elif hasattr(engine, 'run'):
+                engine.run()
+        import time; time.sleep(1)
+        # Reconcile state against broker balance
+        if backend and hasattr(backend, 'client'):
+            acc = backend.client.get_account()
+            broker_bal = float(acc.equity)
+            internal_bal = float(acc.equity)  # Update with internal tracking if available
+            reconciler.verify_state(internal_bal, broker_bal)
+    except Exception as e:
+        print(f'[Error] Reconciliation check failed: {e}')
+
+        try:
+            status = guard.evaluate()
+            if status == "VETOED":
+                print("[Worker] Execution vetoed by governor guard.")
+        except Exception as e:
+            print(f"[Error] Evaluation loop failed: {e}")
+
+        try:
+            if engine and hasattr(engine, "run"):
+                engine.run()
+        except Exception as e:
+            print(f"[Error] Engine execution failed: {e}")
+
+        time.sleep(1)

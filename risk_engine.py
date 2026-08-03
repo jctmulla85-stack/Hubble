@@ -1,4 +1,4 @@
-from gatekeeper import Gatekeeper
+from governor.gatekeeper import SystemGovernor as Gatekeeper
 import logging
 from typing import Optional, Dict, Any
 import pandas as pd
