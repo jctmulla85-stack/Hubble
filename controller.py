@@ -47,7 +47,9 @@ def get_last_heartbeat(account_id: str) -> Optional[datetime]:
             try:
                 entry = json.loads(line)
                 data = entry.get("data", {})
-                if data.get("account") == account_id and entry.get("type") == "SYSTEM_HEARTBEAT":
+                if not isinstance(data, dict):
+                    continue
+                if isinstance(entry, dict) and entry.get("data", {}).get("account") == account_id and entry.get("type") == "SYSTEM_HEARTBEAT":
                     timestamp_str = entry.get("timestamp")
                     if timestamp_str:
                         dt = datetime.fromisoformat(timestamp_str)

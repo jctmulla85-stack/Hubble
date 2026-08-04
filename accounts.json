@@ -4,8 +4,8 @@
       "account_id": "APEX_001",
       "firm_name": "Apex",
       "credentials": {
-        "api_key": "YOUR_KEY_1",
-        "api_secret": "YOUR_SECRET_1"
+        "api_key": "your_actual_apex_key",
+        "api_secret": "your_actual_apex_secret"
       },
       "risk_profile": {
         "drawdown_type": "trailing",
@@ -19,8 +19,8 @@
       "account_id": "TOPSTEP_001",
       "firm_name": "Topstep",
       "credentials": {
-        "api_key": "YOUR_KEY_2",
-        "api_secret": "YOUR_SECRET_2"
+        "api_key": "your_actual_topstep_key",
+        "api_secret": "your_actual_topstep_secret"
       },
       "risk_profile": {
         "drawdown_type": "eod",

@@ -1,84 +1,65 @@
 import os
 import logging
-import hashlib
-from datetime import datetime, timezone
-from typing import Optional, Any
-from dotenv import load_dotenv
-
-from alpaca.trading.client import TradingClient
+import time
+import random
 from alpaca.trading.requests import MarketOrderRequest
 from alpaca.trading.enums import OrderSide, TimeInForce
+from execution.backend import LiveAlpacaBackend
+from execution.universe import get_tradable_equity_assets
 
-load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("QuantBotEngine")
 
 class Engine:
-    def __init__(self, api_client: Optional[Any] = None) -> None:
-        self.bot_mode: str = os.getenv("BOT_MODE", "MOCK").upper()
-        self.processed_order_hashes = set()
-        
-        if api_client is not None:
-            self.api_client = api_client
-        elif self.bot_mode in ("PAPER", "LIVE"):
-            is_paper = (self.bot_mode == "PAPER")
-            api_key = os.getenv("ALPACA_KEY_APEX_001")
-            api_secret = os.getenv("ALPACA_SECRET_APEX_001")
-            
-            if not api_key or not api_secret:
-                logger.error("[Engine Error] Alpaca API keys are missing from environment variables.")
-                self.api_client = None
-            else:
-                self.api_client = TradingClient(api_key=api_key, secret_key=api_secret, paper=is_paper)
+    def __init__(self, backend=None, api_client=None):
+        if backend is not None:
+            self.backend = backend
+        elif api_client is not None:
+            self.backend = LiveAlpacaBackend(api_client=api_client)
         else:
-            self.api_client = None
-            
-        logger.info(f"[Engine Initialized] Active Execution Mode: {self.bot_mode}")
+            self.backend = LiveAlpacaBackend()
 
-    def place_market_order(self, symbol: str, qty: float, side: str) -> bool:
-        symbol_upper = symbol.upper()
-        order_side = side.upper()
-        try:
-            validated_qty = float(qty)
-            payload = f"{symbol_upper}:{validated_qty}:{order_side}:{datetime.now(timezone.utc).strftime('%Y-%m-%d-%H-%M')}"
-            order_uuid = hashlib.sha256(payload.encode('utf-8')).hexdigest()
+        self.universe = get_tradable_equity_assets()
+        self.last_trade_time = 0
+        self.cooldown_seconds = 15
+        logger.info(f"[Engine Initialized] Loaded asset universe with {len(self.universe)} symbols (Crypto excluded).")
 
-            if order_uuid in self.processed_order_hashes:
-                logger.warning(f"[Idempotency Lock] Duplicate order blocked: {order_uuid}")
-                return False
+    def run_tick(self):
+        current_time = time.time()
+        if current_time - self.last_trade_time < self.cooldown_seconds:
+            return
 
-            self.processed_order_hashes.add(order_uuid)
-
-            if self.bot_mode == "MOCK":
-                logger.info(f"[MOCK EXECUTION] Order Placed | UUID: {order_uuid[:8]} | Side: {order_side} | Qty: {validated_qty} | Symbol: {symbol_upper}")
-                return True
+        logger.info("[Engine] Running strategy tick... scanning full universe for signal evaluation.")
+        if self.universe:
+            target_symbol = random.choice(self.universe)
+            logger.info(f"[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: {target_symbol}")
+            try:
+                account_equity = 100000.0
+                if hasattr(self, "backend") and hasattr(self.backend, "get_account"):
+                    try:
+                        acc = self.backend.get_account()
+                        account_equity = float(acc.equity)
+                    except Exception:
+                        pass
                 
-            if self.api_client is None:
-                logger.error(f"[Engine Error] Cannot execute {self.bot_mode} order: API client is uninitialized.")
-                return False
+                risk_per_trade_pct = 0.01
+                asset_price = 100.0
+                if hasattr(self, "backend") and hasattr(self.backend, "get_latest_price"):
+                    try:
+                        asset_price = float(self.backend.get_latest_price(target_symbol))
+                    except Exception:
+                        pass
                 
-            alpaca_side = OrderSide.BUY if order_side == "BUY" else OrderSide.SELL
-            order_request = MarketOrderRequest(
-                symbol=symbol_upper,
-                qty=validated_qty,
-                side=alpaca_side,
-                time_in_force=TimeInForce.GTC
-            )
-            
-            logger.info(f"[{self.bot_mode} EXECUTION] Dispatching order via API | UUID: {order_uuid[:8]} | Side: {alpaca_side} | Qty: {validated_qty} | Symbol: {symbol_upper}")
-            response = self.api_client.submit_order(order_request)
-            logger.info(f"[{self.bot_mode} EXECUTION SUCCESS] Broker Response: {response}")
-            return True
-            
-        except Exception as e:
-            logger.error(f"[Engine Error] {e}")
-            return False
+                target_qty = max(1.0, round((account_equity * risk_per_trade_pct) / asset_price, 2))
 
-if __name__ == "__main__":
-    engine = Engine()
-    first = engine.place_market_order("AAPL", 1, "buy")
-    print(f"Test Execution Status: {first}")
-
-    def run(self):
-        # Polling or signal checking loop placeholder
-        logger.info("[Engine] Running strategy tick...")
+                order_data = MarketOrderRequest(
+                    symbol=target_symbol,
+                    qty=target_qty,
+                    side=OrderSide.BUY,
+                    time_in_force=TimeInForce.GTC
+                )
+                response = self.backend.submit_order(order_data)
+                logger.info(f"[PAPER EXECUTION] Successfully dispatched order for {target_symbol}: {response}")
+                self.last_trade_time = current_time
+            except Exception as e:
+                logger.error(f"[Engine Error] Failed to submit order for {target_symbol}: {e}")

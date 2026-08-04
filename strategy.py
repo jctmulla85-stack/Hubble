@@ -76,7 +76,10 @@ class MomentumStrategy:
         
         for asset in assets:
             symbol = asset.get("symbol")
-            target_qty = asset.get("qty", 0.0)
+            account_equity = self.get_account_equity() if hasattr(self, 'get_account_equity') else 100000.0
+            risk_per_trade_pct = 0.01
+            asset_price = self.get_latest_price(symbol) if hasattr(self, 'get_latest_price') else 100.0
+            target_qty = max(1.0, round((account_equity * risk_per_trade_pct) / asset_price, 2))
             side = asset.get("side", "buy")
             
             if not symbol or target_qty <= 0:
