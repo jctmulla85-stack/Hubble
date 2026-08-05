@@ -285,3 +285,18 @@ Traceback (most recent call last):
   File "/root/QuantBot/venv/lib/python3.12/site-packages/alpaca/common/rest.py", line 354, in _validate_credentials
     raise ValueError("You must supply a method of authentication")
 ValueError: You must supply a method of authentication
+Traceback (most recent call last):
+  File "/root/QuantBot/resource_watchdog.py", line 28, in <module>
+    watchdog = ResourceWatchdog()
+               ^^^^^^^^^^^^^^^^^^
+  File "/root/QuantBot/resource_watchdog.py", line 10, in __init__
+    self.client = TradingClient(self.api_key, self.api_secret)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/QuantBot/venv/lib/python3.12/site-packages/alpaca/trading/client.py", line 74, in __init__
+    super().__init__(
+  File "/root/QuantBot/venv/lib/python3.12/site-packages/alpaca/common/rest.py", line 61, in __init__
+    self._api_key, self._secret_key, self._oauth_token = self._validate_credentials(
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/QuantBot/venv/lib/python3.12/site-packages/alpaca/common/rest.py", line 354, in _validate_credentials
+    raise ValueError("You must supply a method of authentication")
+ValueError: You must supply a method of authentication
