@@ -1,95 +1,24 @@
-import os
 import sys
-import json
-import logging
-from datetime import datetime
-import pytz
-from typing import Dict, Any, List
-
-# --- Path Setup ---
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if BASE_DIR not in sys.path:
-    sys.path.append(BASE_DIR)
-
-from governance.enterprise_governor import EnterpriseGovernor
-
-# Configure enterprise-grade secure logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
-logger = logging.getLogger("QuantBot.Strategy")
 
 class MomentumStrategy:
-    """
-    Enterprise-Grade Adaptive Momentum Strategy.
-    Designed for high-throughput, secure, multi-asset manifest execution,
-    adhering to modern quantitative trading and security architecture.
-    Integrated with EnterpriseGovernor for global risk and exposure limits.
-    """
-    def __init__(self, event_bus: Any, manifest_path: str = 'trading_manifest.json'):
-        self.bus = event_bus
-        self.current_regime = "NEUTRAL"
-        self.manifest_path = os.path.join(BASE_DIR, manifest_path)
-        self.governor = EnterpriseGovernor()
-        logger.info("[MomentumStrategy Initialized] EnterpriseGovernor attached successfully.")
+    def __init__(self, threshold_imbalance=1.1):
+        self.threshold_imbalance = threshold_imbalance
+        sys.stdout.write("[STRATEGY] Initialized Zero-Dependency Momentum Strategy.\n")
 
-    def _is_market_open(self) -> bool:
-        """
-        Validates if US equity markets are currently open (9:30 AM - 4:00 PM ET, Mon-Fri).
-        """
-        ny_tz = pytz.timezone("America/New_York")
-        now_ny = datetime.now(ny_tz)
-
-        # Weekend check (Saturday = 5, Sunday = 6)
-        if now_ny.weekday() >= 5:
-            return False
-
-        market_open = now_ny.replace(hour=9, minute=30, second=0, microsecond=0)
-        market_close = now_ny.replace(hour=16, minute=0, second=0, microsecond=0)
-
-        return market_open <= now_ny <= market_close
-
-    def _load_manifest(self) -> Dict[str, Any]:
-        """Loads the trading manifest safely."""
-        try:
-            if not os.path.exists(self.manifest_path):
-                logger.warning(f"[MomentumStrategy] Manifest not found at {self.manifest_path}. Using empty config.")
-                return {}
-            with open(self.manifest_path, 'r') as f:
-                return json.load(f)
-        except Exception as e:
-            logger.error(f"[MomentumStrategy Error] Failed to load trading manifest: {e}")
-            return {}
-
-    def run_tick(self) -> None:
-        """
-        Main execution tick loop evaluated periodically.
-        Bypasses strategy evaluation and broker calls when the market is closed.
-        Enforces GovernorGuard safety rules prior to signal generation.
-        """
-        if not self._is_market_open():
-            # Market is closed; skip execution loops to prevent off-hours connection vetoes
-            return
-
-        logger.info("Market is open. Running strategy tick evaluation...")
+    def generate_signal(self, symbol, quote):
+        bid_vol = quote["bid_vol"]
+        ask_vol = quote["ask_vol"]
         
-        manifest = self._load_manifest()
-        assets = manifest.get("assets", [])
-        
-        for asset in assets:
-            symbol = asset.get("symbol")
-            account_equity = self.get_account_equity() if hasattr(self, 'get_account_equity') else 100000.0
-            risk_per_trade_pct = 0.01
-            asset_price = self.get_latest_price(symbol) if hasattr(self, 'get_latest_price') else 100.0
-            target_qty = max(1.0, round((account_equity * risk_per_trade_pct) / asset_price, 2))
-            side = asset.get("side", "buy")
+        if ask_vol == 0:
+            return "HOLD"
             
-            if not symbol or target_qty <= 0:
-                continue
-
-            # Enforce enterprise risk governance check via GovernorGuard
-            allowed, reason = self.governor.validate_order(symbol, target_qty, side)
-            if not allowed:
-                logger.warning(f"[GovernorBlock] Skipped order for {symbol}: {reason}")
-                continue
-
-            logger.info(f"[SignalApproved] Asset {symbol} passed GovernorGuard validation. Proceeding to execution dispatch.")
-            # --- Broker execution dispatch hook goes here ---
+        ratio = bid_vol / ask_vol
+        
+        if ratio >= self.threshold_imbalance:
+            sys.stdout.write(f"[STRATEGY] Bullish imbalance detected for {symbol} (Ratio: {ratio:.2f}). Signal: BUY\n")
+            return "BUY"
+        elif ratio <= (1.0 / self.threshold_imbalance):
+            sys.stdout.write(f"[STRATEGY] Bearish imbalance detected for {symbol} (Ratio: {ratio:.2f}). Signal: SELL\n")
+            return "SELL"
+            
+        return "HOLD"

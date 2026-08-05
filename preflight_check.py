@@ -1,22 +1,20 @@
-import sys
-# Add your broker/exchange SDK import here
+import os
+from alpaca.trading.client import TradingClient
 
-def check_system():
-    try:
-        # 1. Test API Connectivity & Authentication
-        print("Checking broker connection...")
-        # response = broker_client.get_account()
-        # assert response.status == 200, "API authentication failed"
-
-        # 2. Test Data Feed Subscription
-        print("Checking market data feed...")
-        # tick = broker_client.get_latest_tick("SYMBOL")
-        # assert tick is not None, "No data feed received"
-
-        print("All pre-flight checks passed successfully.")
-    except Exception as e:
-        print(f"Pre-flight check failed: {e}", file=sys.stderr)
-        sys.exit(1)
-
-if __name__ == "__main__":
-    check_system()
+for env_var in os.environ:
+    if env_var.startswith('ALPACA_KEY_'):
+        account_id = env_var.replace('ALPACA_KEY_', '')
+        key = os.getenv(f'ALPACA_KEY_{account_id}')
+        secret = os.getenv(f'ALPACA_SECRET_{account_id}')
+        if key and secret:
+            client = TradingClient(key, secret, paper=True)
+            clock = client.get_clock()
+            account = client.get_account()
+            
+            print(f"=== PRE-FLIGHT CHECK: {account_id} ===")
+            print(f"API Connection:     SUCCESS")
+            print(f"Market Next Open:   {clock.next_open}")
+            print(f"Market Is Open:     {clock.is_open}")
+            print(f"Account Status:     {account.status}")
+            print(f"Buying Power:       ${float(account.buying_power):,.2f}")
+            print("========================================")

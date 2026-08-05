@@ -22,4 +22,12 @@ class LiveAlpacaBackend:
     def submit_order(self, order_request):
         if self.client is None:
             raise ValueError("Alpaca TradingClient is not initialized.")
+        
+        # Pre-trade safety check: verify buying power
+        account = self.client.get_account()
+        buying_power = float(account.buying_power)
+        if buying_power <= 0:
+            logger.error(f"[Pre-Trade Risk Block] Order rejected: Buying power is exhausted ({buying_power}).")
+            raise ValueError(f"Insufficient buying power: {buying_power}")
+            
         return self.client.submit_order(order_request)
