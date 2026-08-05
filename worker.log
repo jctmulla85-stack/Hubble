@@ -32980,3 +32980,187 @@ INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for
 INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ROBN
 ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
 ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ROBN: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: BSBK
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for BSBK: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: RAMP
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for RAMP: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: HL.PRB
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for HL.PRB: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: CAES
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for CAES: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ISRA
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ISRA: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: OPENW
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for OPENW: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: PAYP
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for PAYP: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: CMRE.PRC
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for CMRE.PRC: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: DBCAU
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for DBCAU: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: THD
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for THD: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: HPP.PRC
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for HPP.PRC: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ANV
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ANV: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: GBDC
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for GBDC: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: PCLO
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for PCLO: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: BSMQ
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for BSMQ: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: GWAV
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for GWAV: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: PVH
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for PVH: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: EMISR
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for EMISR: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: JBLU
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for JBLU: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: FEBU
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for FEBU: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ARTL
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ARTL: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: BKKLY
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for BKKLY: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: RFDA
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for RFDA: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ENJ
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ENJ: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: FXED
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for FXED: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ANGHW
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ANGHW: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: MBBB
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for MBBB: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: FCA
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for FCA: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: HDRN
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for HDRN: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: BGIA
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for BGIA: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: EPSN
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for EPSN: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ISPR
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ISPR: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: QVMS
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for QVMS: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: TOMZ
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for TOMZ: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: NVTX
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for NVTX: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ASTY
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ASTY: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: VRME
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for VRME: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: BIBL
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for BIBL: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: PLTW
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for PLTW: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: UPMMY
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for UPMMY: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: ETH
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for ETH: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: CYD
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for CYD: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: BRTR
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for BRTR: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: MYCH
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for MYCH: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: NHIVW
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for NHIVW: Insufficient buying power: 0.0
+INFO:QuantBotEngine:[Engine] Running strategy tick... scanning full universe for signal evaluation.
+INFO:QuantBotEngine:[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: UBER
+ERROR:execution.backend:[Pre-Trade Risk Block] Order rejected: Buying power is exhausted (0.0).
+ERROR:QuantBotEngine:[Engine Error] Failed to submit order for UBER: Insufficient buying power: 0.0
