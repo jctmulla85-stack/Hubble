@@ -3,3 +3,5 @@ logs/
 data/
 __pycache__/
 *.pyc
+audit_trail.jsonl
+*.log
