@@ -1,0 +1,2 @@
+{"timestamp": "2026-08-06T08:57:41.925207", "symbol": "AAPL", "side": "buy", "qty": 100, "expected_price": 150.0, "fill_price": 150.05, "slippage": 0.05, "spread": 0.03}
+{"timestamp": "2026-08-06T20:46:56.361214", "symbol": "AAPL", "side": "buy", "qty": 100, "expected_price": 150.0, "fill_price": 150.05, "slippage": 0.05, "spread": 0.03}

@@ -1,34 +1,34 @@
 {
-  "accounts": [
-    {
-      "account_id": "APEX_001",
-      "firm_name": "Apex",
-      "credentials": {
-        "api_key": "your_actual_apex_key",
-        "api_secret": "your_actual_apex_secret"
-      },
-      "risk_profile": {
-        "drawdown_type": "trailing",
-        "daily_loss_limit": 2500,
-        "max_drawdown": 5000,
-        "max_position_size_pct": 0.02
-      },
-      "status": "active"
-    },
-    {
-      "account_id": "TOPSTEP_001",
-      "firm_name": "Topstep",
-      "credentials": {
-        "api_key": "your_actual_topstep_key",
-        "api_secret": "your_actual_topstep_secret"
-      },
-      "risk_profile": {
-        "drawdown_type": "eod",
-        "daily_loss_limit": 1500,
-        "max_drawdown": 3000,
-        "max_position_size_pct": 0.015
-      },
-      "status": "active"
-    }
-  ]
+    "accounts": [
+        {
+            "account_id": "APEX_001",
+            "firm_name": "Apex",
+            "credentials": {
+                "api_key": "YOUR_REAL_APEX_KEY",
+                "api_secret": "YOUR_REAL_APEX_SECRET"
+            },
+            "risk_profile": {
+                "drawdown_type": "trailing",
+                "daily_loss_limit": 2500,
+                "max_drawdown": 5000,
+                "max_position_size_pct": 0.02
+            },
+            "status": "active"
+        },
+        {
+            "account_id": "TOPSTEP_001",
+            "firm_name": "Topstep",
+            "credentials": {
+                "api_key": "your_actual_topstep_key",
+                "api_secret": "your_actual_topstep_secret"
+            },
+            "risk_profile": {
+                "drawdown_type": "eod",
+                "daily_loss_limit": 1500,
+                "max_drawdown": 3000,
+                "max_position_size_pct": 0.015
+            },
+            "status": "active"
+        }
+    ]
 }

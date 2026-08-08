@@ -1,10 +1,11 @@
+from config import Config
 import os
 from alpaca.trading.client import TradingClient
 
 api_key = os.getenv("ALPACA_KEY_APEX_001")
 api_secret = os.getenv("ALPACA_SECRET_APEX_001")
 
-client = TradingClient(api_key=api_key, secret_key=api_secret, paper=True)
+client = TradingClient(api_key=Config.ALPACA_API_KEY, secret_key=Config.ALPACA_SECRET_KEY, paper=True)
 
 positions = client.get_all_positions()
 account = client.get_account()

@@ -33,30 +33,31 @@ class Engine:
         if self.universe:
             target_symbol = random.choice(self.universe)
             logger.info(f"[Alpha Signal Triggered] Evaluating dynamic order across universe for symbol: {target_symbol}")
-            try:
-                account_equity = 100000.0
-                if hasattr(self, "backend") and hasattr(self.backend, "get_account"):
-                    try:
-                        acc = self.backend.get_account()
-                        account_equity = float(acc.equity)
+            account_equity = 100000.0
+            if hasattr(self, "backend") and hasattr(self.backend, "get_account"):
+                try:
+                    acc = self.backend.get_account()
+                    account_equity = float(acc.equity)
                     except Exception:
                         pass
+            risk_per_trade_pct = 0.01
+            asset_price = 100.0
+            if hasattr(self, "backend") and hasattr(self.backend, "get_latest_price"):
+                try:
+                    asset_price = float(self.backend.get_latest_price(target_symbol))
+                    if asset_price < 1.0:
+                        logger.info(f"[FILTER] Skipping penny stock {target_symbol} at price {asset_price}")
+                        continue
+                except Exception:
+                    pass
                 
-                risk_per_trade_pct = 0.01
-                asset_price = 100.0
-                if hasattr(self, "backend") and hasattr(self.backend, "get_latest_price"):
-                    try:
-                        asset_price = float(self.backend.get_latest_price(target_symbol))
-                    except Exception:
-                        pass
-                
-                target_qty = max(1.0, round((account_equity * risk_per_trade_pct) / asset_price, 2))
+                target_qty = max(1.0, round(((account_equity * 0.90) * risk_per_trade_pct) / asset_price, 2))
 
                 order_data = MarketOrderRequest(
                     symbol=target_symbol,
                     qty=target_qty,
                     side=OrderSide.BUY,
-                    time_in_force=TimeInForce.GTC
+                    time_in_force=TimeInForce.DAY
                 )
                 response = self.backend.submit_order(order_data)
                 logger.info(f"[PAPER EXECUTION] Successfully dispatched order for {target_symbol}: {response}")

@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 audit_trail.jsonl
 *.log
+*.tar.gz
+venv/
+*.log

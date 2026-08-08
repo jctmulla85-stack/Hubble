@@ -14,20 +14,19 @@ liquidated_count = 0
 
 for p in positions:
     val = float(p.market_value)
-    if val < 50.0:  # Same threshold used to flag the 60 positions
+    if val < 50.0:  
         try:
-            # Determine side to close the position
             side = OrderSide.SELL if p.side.value == 'long' else OrderSide.BUY
             order_data = MarketOrderRequest(
                 symbol=p.symbol,
                 qty=p.qty,
                 side=side,
-                time_in_force=TimeInForce.IOC
+                time_in_force=TimeInForce.DAY
             )
             client.submit_order(order_data)
-            print(f" -> Liquidated: {p.symbol} (Value: ${val:.2f})")
+            print(f" -> Queued Liquidation: {p.symbol} (Value: ${val:.2f})")
             liquidated_count += 1
         except Exception as e:
             print(f" [ERROR] Failed to liquidate {p.symbol}: {e}")
 
-print(f"\n[COMPLETE] Successfully submitted market orders for {liquidated_count} dust positions.")
+print(f"\n[COMPLETE] Successfully queued market orders for {liquidated_count} dust positions.")

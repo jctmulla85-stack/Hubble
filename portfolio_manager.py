@@ -1,12 +1,12 @@
 import sys
 
 class PortfolioManager:
-    def __init__(self, max_total_exposure=500000.0):
+    def __init__(self, max_total_exposure=100000.0):
         self.max_exposure = max_total_exposure
-        self.positions = {}  # {symbol: {'qty': qty, 'cost_basis': price}}
+        self.positions = {} # {symbol: {'qty': qty, 'cost_basis': price}}
 
     def update_position(self, symbol, qty, price):
-        """Updates or initializes position state for any given asset."""
+        """Updates or initializes position state for any given set."""
         if qty == 0:
             if symbol in self.positions:
                 del self.positions[symbol]
@@ -22,9 +22,9 @@ class PortfolioManager:
         """Ensures adding a position across any asset doesn't breach capital limits."""
         current_exposure = self.get_total_exposure()
         added_exposure = abs(additional_qty * price)
-        
+
         if (current_exposure + added_exposure) > self.max_exposure:
             sys.stderr.write(f"[PORTFOLIO_MANAGER] Exposure limit breached for {symbol}. Order rejected.\n")
             return False
-            
+
         return True
